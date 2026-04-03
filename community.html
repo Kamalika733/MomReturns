@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - MomReturn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="MomReturn Logo" style="height: 40px; width: 40px; margin-right: 10px;">
+                MomReturn
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skill-portfolio.html">Explore Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketplace.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="connect-customer.html">Connect to Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mentorship.html">Mentorship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learning-hub.html">Learning Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section bg-light-purple">
+        <div class="container">
+            <h1 class="section-title">Community Forum</h1>
+            <p class="text-center lead">Share experiences, ask questions, and find business partners</p>
+        </div>
+    </section>
+
+    <!-- Community Forum -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Post New Discussion -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Start a Discussion</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="discussionForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Topic</label>
+                                    <input type="text" class="form-control" id="discussionTopic" required placeholder="e.g., Best practices for pricing">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-control" id="discussionCategory" required>
+                                        <option value="">Select category</option>
+                                        <option value="general">General Discussion</option>
+                                        <option value="business">Business Tips</option>
+                                        <option value="skills">Skills & Techniques</option>
+                                        <option value="collaboration">Collaboration</option>
+                                        <option value="support">Support & Help</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" id="discussionMessage" rows="4" required placeholder="Share your thoughts..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Post Discussion</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussions List -->
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="discussionSearch" placeholder="Search discussions...">
+                    </div>
+
+                    <div id="discussionsList">
+                        <!-- Sample Discussions -->
+                        <div class="card mb-3 discussion-item" data-category="business">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5>How to Price Your Handmade Products?</h5>
+                                    <span class="badge bg-primary">Business</span>
+                                </div>
+                                <p class="text-muted">I'm new to selling handmade items and would love advice on how to price my embroidery work fairly...</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <small class="text-muted">Posted by: Priya S. | 2 days ago</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-light text-dark">12 Replies</span>
+                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="viewDiscussion('1')">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3 discussion-item" data-category="collaboration">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5>Looking for Baking Partner</h5>
+                                    <span class="badge bg-success">Collaboration</span>
+                                </div>
+                                <p class="text-muted">I'm an event planner looking to partner with home bakers for regular orders. Anyone interested?</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <small class="text-muted">Posted by: Anita R. | 1 day ago</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-light text-dark">5 Replies</span>
+                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="viewDiscussion('2')">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3 discussion-item" data-category="skills">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5>Best Embroidery Thread Brands?</h5>
+                                    <span class="badge bg-info">Skills</span>
+                                </div>
+                                <p class="text-muted">What embroidery thread brands do you recommend for beginners? Looking for quality and affordability...</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <small class="text-muted">Posted by: Meera P. | 3 days ago</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-light text-dark">8 Replies</span>
+                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="viewDiscussion('3')">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3 discussion-item" data-category="general">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5>Success Story: From Hobby to Business</h5>
+                                    <span class="badge bg-secondary">General</span>
+                                </div>
+                                <p class="text-muted">I started with just a few embroidery pieces and now I'm earning ₹30,000 monthly! Here's my journey...</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <small class="text-muted">Posted by: Sunita K. | 5 days ago</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-light text-dark">25 Replies</span>
+                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="viewDiscussion('4')">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3 discussion-item" data-category="support">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5>How to Upload Product Images?</h5>
+                                    <span class="badge bg-warning">Support</span>
+                                </div>
+                                <p class="text-muted">I'm having trouble uploading product images to my dashboard. Can someone help?</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <small class="text-muted">Posted by: Kavita M. | 1 day ago</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-light text-dark">3 Replies</span>
+                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="viewDiscussion('5')">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>MomReturn</h5>
+                    <p>Empowering women to earn from home through their skills and creativity.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Contact Us</h5>
+                    <p>Email: support@momreturn.com</p>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 MomReturn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Discussion form handler
+        document.getElementById('discussionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                alert('Please login to post discussions.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const discussionData = {
+                topic: document.getElementById('discussionTopic').value,
+                category: document.getElementById('discussionCategory').value,
+                message: document.getElementById('discussionMessage').value
+            };
+
+            alert('Discussion posted successfully!');
+            this.reset();
+        });
+
+        // Search discussions
+        document.getElementById('discussionSearch').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const discussions = document.querySelectorAll('.discussion-item');
+
+            discussions.forEach(discussion => {
+                const text = discussion.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    discussion.style.display = 'block';
+                } else {
+                    discussion.style.display = 'none';
+                }
+            });
+        });
+
+        function viewDiscussion(id) {
+            window.location.href = 'discussion-detail.html?id=' + id;
+        }
+    </script>
+</body>
+</html>
+

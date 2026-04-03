@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MomReturn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="MomReturn Logo" style="height: 40px; width: 40px; margin-right: 10px;">
+                MomReturn
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skill-portfolio.html">Explore Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketplace.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collaboration.html">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="connect-customer.html">Connect to Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mentorship.html">Mentorship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container mt-4">
+        <h2 class="text-purple mb-4">My Dashboard</h2>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                    <div class="rounded-circle bg-white text-purple d-flex align-items-center justify-content-center mx-auto" style="width: 100px; height: 100px; font-size: 2.5rem; font-weight: bold;" id="profileInitial">U</div>
+                </div>
+                <div class="col-md-8">
+                    <h3 id="userName">User Name</h3>
+                    <p id="userSkill" class="mb-0">Skill Category: <span id="skillCategoryDisplay">-</span></p>
+                    <p class="mb-0">Email: <span id="userEmail">-</span></p>
+                </div>
+                <div class="col-md-2 text-end">
+                    <button class="btn btn-peach" onclick="editProfile()">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="row mt-4">
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card text-center">
+                    <h3 class="text-purple" id="totalEarnings">₹0</h3>
+                    <p class="text-muted">Total Earnings</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card text-center">
+                    <h3 class="text-purple" id="totalOrders">0</h3>
+                    <p class="text-muted">Total Orders</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card text-center">
+                    <h3 class="text-purple" id="portfolioItems">0</h3>
+                    <p class="text-muted">Portfolio Items</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="dashboard-card text-center">
+                    <h3 class="text-purple" id="productsListed">0</h3>
+                    <p class="text-muted">Products Listed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Skill Portfolio -->
+        <div class="dashboard-card">
+            <h4 class="text-purple mb-3">Upload Skill Portfolio</h4>
+            <form id="portfolioForm">
+                <div class="mb-3">
+                    <label for="portfolioTitle" class="form-label">Portfolio Title</label>
+                    <input type="text" class="form-control" id="portfolioTitle" placeholder="e.g., Handmade Embroidery Collection">
+                </div>
+                <div class="mb-3">
+                    <label for="portfolioDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="portfolioDescription" rows="3" placeholder="Describe your work..."></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="portfolioImage" class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" id="portfolioImage" accept="image/*">
+                </div>
+                <div class="mb-3">
+                    <label for="portfolioPrice" class="form-label">Price Range</label>
+                    <input type="text" class="form-control" id="portfolioPrice" placeholder="e.g., ₹500 - ₹2000">
+                </div>
+                <button type="submit" class="btn btn-primary">Add to Portfolio</button>
+            </form>
+        </div>
+
+        <!-- Upload Product Images -->
+        <div class="dashboard-card">
+            <h4 class="text-purple mb-3">Upload Product Images</h4>
+            <form id="productForm">
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Product Name</label>
+                    <input type="text" class="form-control" id="productName" placeholder="e.g., Handmade Saree Pre-pleating">
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <textarea class="form-control" id="productDescription" rows="3" placeholder="Describe your product..."></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="productImage" class="form-label">Upload Product Image</label>
+                    <input type="file" class="form-control" id="productImage" accept="image/*">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="productPrice" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="productPrice" placeholder="₹">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="productCategory" class="form-label">Category</label>
+                        <select class="form-control" id="productCategory">
+                            <option value="embroidery">Embroidery</option>
+                            <option value="pre-pleating">Pre-pleating</option>
+                            <option value="aari-work">Aari Work</option>
+                            <option value="tailoring">Tailoring</option>
+                            <option value="saree-business">Saree Business</option>
+                            <option value="home-baking">Home Baking</option>
+                            <option value="resin-art">Resin Art</option>
+                            <option value="online-classes">Online Classes</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </form>
+        </div>
+
+        <!-- Earnings Section -->
+        <div class="dashboard-card">
+            <h4 class="text-purple mb-3">Earnings</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Order ID</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="earningsTable">
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">No earnings yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Orders / Collaboration Requests -->
+        <div class="dashboard-card">
+            <h4 class="text-purple mb-3">Orders / Collaboration Requests</h4>
+            <div id="ordersList">
+                <p class="text-muted text-center">No orders or collaboration requests yet</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>MomReturn</h5>
+                    <p>Empowering women to earn from home through their skills and creativity.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Contact Us</h5>
+                    <p>Email: support@momreturn.com</p>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 MomReturn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
